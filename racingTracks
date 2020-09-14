@@ -1,0 +1,81 @@
+import java.util.*;
+
+/* """ Min Cost to Racing Track end
+There are three racing tracks. The car departs from middle of the racing track. 
+There are obstacles on the racing track. Given a int array to indicate which 
+racing track have obstacles. Ask at least a few turn cost to end of racing track.
+Author: Tianyang Zhang
+Reference: https://www.1point3acres.com/bbs/thread-642190-1-1.html
+Time complexity:  O(n)
+Space complexity: O(1)
+Example 1:
+Input: 
+obstacles = [0, 1]
+Output: 
+1 
+Explanation: 
+Start from line 1. The first obstacle in line 0 and not change line 
+The second obstacle in line 1 and need to change 1 (cost add 1). Total cost is 1
+Example 2:
+Input: 
+obstacles = [1, 2, 0, 1]
+Output: 
+3
+Explanation:
+Start from line 1. The first obstacle in line 1 and need to change line (cost add 1)
+The second obstacle in line 2, if you last change to line 2 which need change line 
+(cost add 1) and if you last change to line 0 which no need change line.
+The Third obstacle in line 0, if you last change to line 0 which need change line 
+(cost add 1) and if you last change to line 2.
+The fourth obstacle in line 1, if you stay in last line 0 or line 2, you don't
+need to change line. Total cost is 3
+Example 3:
+Input:
+obstacles = [0, 1, 1, 2, 1, 2, 1, 1, 0]
+Output: 
+2
+Explanation:
+Change line 1 to line 0 and change back to line 1. Total cost is 2.
+""" */
+
+
+
+public class RacingTrack {
+	
+	
+	public static void main(String[] args) {
+		int[] obstacles = new int[] {1,2,0,1,2,0,1,2,0,1,2,0,1,1,1,2,0,2};
+		int result = racingTrack(obstacles);
+		int key = 0;
+		
+		if(result == key) System.out.println("Correct!");
+		else System.out.println("Wrong! " + "result: " + Integer.toString(result) + " should be " + Integer.toString(key));
+		
+	}
+
+
+	public static int racingTrack(int[] obstacles){
+		Map<Integer, Integer> tracer = new HashMap<>();
+		tracer.put(1, 0);
+		
+		for(int i = 0; i < obstacles.length; i++) {
+			int obs = obstacles[i];
+			if(tracer.containsKey(obs)) {
+				int currCost = tracer.remove(obs) + 1;
+				
+				if(obs + 1 < 3) {
+					if(tracer.containsKey(obs + 1)) tracer.put(obs + 1, Math.min(tracer.get(obs + 1), currCost));
+					else tracer.put(obs + 1, currCost);
+				}
+				if(obs - 1 >= 0) {
+					if(tracer.containsKey(obs - 1)) tracer.put(obs - 1, Math.min(tracer.get(obs - 1), currCost));
+					else tracer.put(obs - 1, currCost);
+				}
+				
+			}
+		}
+		
+		return Collections.min(tracer.values());
+	}
+
+}
