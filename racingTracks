@@ -4,7 +4,6 @@ import java.util.*;
 There are three racing tracks. The car departs from middle of the racing track. 
 There are obstacles on the racing track. Given a int array to indicate which 
 racing track have obstacles. Ask at least a few turn cost to end of racing track.
-Author: Tianyang Zhang
 Reference: https://www.1point3acres.com/bbs/thread-642190-1-1.html
 Time complexity:  O(n)
 Space complexity: O(1)
@@ -36,7 +35,10 @@ Output:
 2
 Explanation:
 Change line 1 to line 0 and change back to line 1. Total cost is 2.
-""" */
+
+Question credit to Weikun Han <weikunhan@g.ucla.edu>
+Code Author: Tianyang Zhang <tiz010@ucsd.edu>
+*/
 
 
 
