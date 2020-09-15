@@ -14,7 +14,6 @@ Any request that exceeds any of the above limits will be dropped by the gateway
 Given the times at which different requests arrive (sorted in ascending order of 
 arrivals), find how many of them will be dropped.
 Note: Even if a request is dropped it is till considered for future calculations.
-Author: Weikun Han <weikunhan@g.ucla.edu>
 Reference: https://www.1point3acres.com/bbs/thread-610975-1-1.html
 Time complexity: O(n^2)
 Space complexity: O(n)
@@ -26,6 +25,9 @@ Output:
 Explanation:
 There are total 22 requset. 19 requset within 10 sec which no need to drop.
 There are four requests in the first secound. One of them will be dropped as 4 > 3
+
+Question credit to Weikun Han <weikunhan@g.ucla.edu>
+Code Author: Tianyang Zhang <tiz010@ucsd.edu>
 */
 
 
