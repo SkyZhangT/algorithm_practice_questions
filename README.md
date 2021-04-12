@@ -6,5 +6,5 @@ Some of them are from my past interviews.<br>
 Rest of them are interesting topics people discussing on the forum.<br>
 
 ## Disclaimer
-Solutions are not guaranteed to be the fastest. They represent my way of thinking and problem solving.<br>
+Solutions are not guaranteed to be the fastest ones. They represent my way of thinking and problem solving.<br>
 
